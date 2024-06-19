@@ -1,26 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://tgpd1hkxdudn"]
+[gd_scene load_steps=7 format=3 uid="uid://tgpd1hkxdudn"]
 
 [ext_resource type="Texture2D" uid="uid://bis8dhplmdo5d" path="res://art/drill_up.png" id="1_3a2qp"]
+[ext_resource type="Script" path="res://TestPlayer.gd" id="1_47v3w"]
+[ext_resource type="Texture2D" uid="uid://bj7fki77ttn85" path="res://art/drill_down.png" id="2_ay3mb"]
+[ext_resource type="Texture2D" uid="uid://nyulo21cxdey" path="res://art/drill_left.png" id="2_keynx"]
+[ext_resource type="Texture2D" uid="uid://0g05hdlh1g1o" path="res://art/drill_right.png" id="4_wvnrk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rwd3w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_ay3mb")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_keynx")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wvnrk")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_3a2qp")
 }],
 "loop": true,
-"name": &"default",
+"name": &"up",
 "speed": 5.0
 }]
 
 [node name="Main" type="Node"]
 
 [node name="TestPlayer" type="Area2D" parent="."]
+script = ExtResource("1_47v3w")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TestPlayer"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_rwd3w")
+animation = &"down"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TestPlayer"]
 polygon = PackedVector2Array(0, -128, -113, -20, -113, 128, 113, 128, 113, -19)
