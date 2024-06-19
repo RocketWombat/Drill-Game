@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://tgpd1hkxdudn"]
+[gd_scene load_steps=10 format=3 uid="uid://tgpd1hkxdudn"]
 
 [ext_resource type="Texture2D" uid="uid://bis8dhplmdo5d" path="res://art/drill_up.png" id="1_3a2qp"]
 [ext_resource type="Script" path="res://TestPlayer.gd" id="1_47v3w"]
 [ext_resource type="Texture2D" uid="uid://bj7fki77ttn85" path="res://art/drill_down.png" id="2_ay3mb"]
 [ext_resource type="Texture2D" uid="uid://nyulo21cxdey" path="res://art/drill_left.png" id="2_keynx"]
 [ext_resource type="Texture2D" uid="uid://0g05hdlh1g1o" path="res://art/drill_right.png" id="4_wvnrk"]
+[ext_resource type="Texture2D" uid="uid://oih3e26g3wbm" path="res://art/dirt_tile.png" id="6_tobhy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rwd3w"]
 animations = [{
@@ -41,6 +42,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7sox"]
+resource_name = "terrain"
+texture = ExtResource("6_tobhy")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSet" id="TileSet_76ktv"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "destructible"
+custom_data_layer_0/type = 1
+sources/1 = SubResource("TileSetAtlasSource_k7sox")
+
 [node name="Main" type="Node"]
 
 [node name="TestPlayer" type="Area2D" parent="."]
@@ -54,3 +73,7 @@ animation = &"down"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TestPlayer"]
 polygon = PackedVector2Array(0, -128, -113, -20, -113, 128, 113, 128, 113, -19)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_76ktv")
+format = 2
