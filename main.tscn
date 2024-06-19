@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://tgpd1hkxdudn"]
+
+[ext_resource type="Texture2D" uid="uid://bis8dhplmdo5d" path="res://art/drill_up.png" id="1_3a2qp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwd3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3a2qp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node"]
+
+[node name="TestPlayer" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TestPlayer"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_rwd3w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TestPlayer"]
+polygon = PackedVector2Array(0, -128, -113, -20, -113, 128, 113, 128, 113, -19)
