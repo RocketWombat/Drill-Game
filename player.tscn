@@ -1,10 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmt0hbxydbx23"]
+[gd_scene load_steps=4 format=3 uid="uid://dmt0hbxydbx23"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_p2lyc"]
+[ext_resource type="Texture2D" uid="uid://sspotej07328" path="res://Sprites/DrillCar.png" id="2_q3cdf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mc3b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q3cdf")
+}],
+"loop": true,
+"name": &"forward",
+"speed": 5.0
+}]
 
 [node name="Player" type="Area2D"]
+script = ExtResource("1_p2lyc")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mc3b3")
+animation = &"forward"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -32, 19, 1, 16, 1, 16, 32, -16, 32, -16, 1, -19, 1)
