@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmt0hbxydbx23"]
+[gd_scene load_steps=4 format=3 uid="uid://b0f24cs6oesef"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_p2lyc"]
 [ext_resource type="Texture2D" uid="uid://sspotej07328" path="res://Sprites/DrillCar.png" id="2_q3cdf"]
@@ -24,3 +24,5 @@ animation = &"forward"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, 19, 1, 16, 1, 16, 32, -16, 32, -16, 1, -19, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
