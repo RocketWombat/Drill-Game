@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://chbkrpu6s6vmo"
+path="res://.godot/imported/DrillCar.aseprite-4adcc5dbdecb0b6a76f6809cd97203f9.res"
+
+[deps]
+
+source_file="res://addons/DrillCar.aseprite"
+dest_files=["res://.godot/imported/DrillCar.aseprite-4adcc5dbdecb0b6a76f6809cd97203f9.res"]
+
+[params]
+
