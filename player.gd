@@ -32,6 +32,7 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionPolygon2D.disabled = false
+	$AnimatedSprite2D.play("Forward")
 
 func _on_body_entered(body):
 	hide()
