@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmixmldfqf0w"]
+
+[ext_resource type="Texture2D" uid="uid://oih3e26g3wbm" path="res://addons/art/dirt_tile.png" id="1_gpnyx"]
+[ext_resource type="Script" path="res://TileMap.gd" id="1_pmqu4"]
+[ext_resource type="Texture2D" uid="uid://htym8ob8e22e" path="res://addons/art/air_tile.png" id="2_34o4v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffkmv"]
+resource_name = "Dirt"
+texture = ExtResource("1_gpnyx")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ng5f"]
+resource_name = "Air"
+texture = ExtResource("2_34o4v")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_aen1u"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_ffkmv")
+sources/4 = SubResource("TileSetAtlasSource_0ng5f")
+
+[node name="Map" type="CanvasLayer"]
+layer = -1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_aen1u")
+collision_animatable = true
+format = 2
+layer_0/name = "Background"
+layer_1/name = "Foreground"
+layer_1/tile_data = PackedInt32Array(131073, 3, 0, 131076, 3, 0, 131077, 3, 0, 131080, 3, 0, 131082, 3, 0, 131081, 3, 0, 131078, 3, 0, 131079, 3, 0, 131072, 3, 0, 131074, 3, 0, 131075, 3, 0, 65538, 3, 0, 65537, 3, 0, 65536, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 65539, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 65546, 3, 0, 196618, 3, 0, 196617, 3, 0, 196616, 3, 0, 196615, 3, 0, 196614, 3, 0, 196613, 3, 0, 196612, 3, 0, 196611, 3, 0, 196610, 3, 0, 196609, 3, 0, 196608, 3, 0, 262144, 3, 0, 262145, 3, 0, 262146, 3, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 327690, 3, 0, 327689, 3, 0, 327688, 3, 0, 327687, 3, 0, 327686, 3, 0, 327685, 3, 0, 327684, 3, 0, 327683, 3, 0, 327682, 3, 0, 327681, 3, 0, 327680, 3, 0, 11, 3, 0, 65547, 3, 0, 131083, 3, 0, 196619, 3, 0, 262155, 3, 0, 327691, 3, 0, 65548, 3, 0, 12, 3, 0, 131084, 3, 0, 196620, 3, 0, 262156, 3, 0, 327692, 3, 0, 393228, 3, 0, 393227, 3, 0, 393226, 3, 0, 393225, 3, 0, 458760, 3, 0, 458759, 3, 0, 458758, 3, 0, 458757, 3, 0, 458756, 3, 0, 458755, 3, 0, 458754, 3, 0, 458753, 3, 0, 393216, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 458761, 3, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 393224, 3, 0, 458751, 4, 0, 458752, 3, 0, 524287, 4, 0)
+script = ExtResource("1_pmqu4")
