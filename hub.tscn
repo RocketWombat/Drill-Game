@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://8w1v5157wk4l"]
+
+[ext_resource type="Script" path="res://Hub.gd" id="1_7gakq"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_eex06"]
+action = &"Start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_m4rjr"]
+events = [SubResource("InputEventAction_eex06")]
+
+[node name="Hub" type="CanvasLayer"]
+script = ExtResource("1_7gakq")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.497
+anchor_top = 0.836
+anchor_right = 0.5
+anchor_bottom = 0.922
+offset_left = -23.08
+offset_top = -7.96002
+offset_right = 35.0
+offset_bottom = 0.0799866
+grow_horizontal = 2
+grow_vertical = 0
+shortcut = SubResource("Shortcut_m4rjr")
+text = "Start"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
