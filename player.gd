@@ -24,12 +24,27 @@ func _process(delta):
 		
 	velocity = velocity * speed
 	
+	if abs(rotation) < .05:
+		rotation = 0
+	
+	if (velocity.x == 0 && self.rotation > 0) || (velocity.x < 0):
+		rotation = clamp(rotation - .05, -.75, .75)
+	elif (velocity.x == 0 && self.rotation < 0) || (velocity.x > 0):
+		rotation = clamp(rotation + .05, -.75, .75)
+	else:
+		rotation = 0
+		
+		
+	
 	#Update player position
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
+	
+	print(self.rotation)
 
-func start(pos):
-	position = pos
+func start():
+	position.x = screen_size.x/2
+	position.y = screen_size.y*2/3
 	show()
 	$CollisionPolygon2D.disabled = false
 	$AnimatedSprite2D.play("Forward")
