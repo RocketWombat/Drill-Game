@@ -99,7 +99,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Forward",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [node name="Player" type="Area2D"]
@@ -109,6 +109,8 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ab2i0")
 animation = &"Forward"
+frame = 2
+frame_progress = 0.529791
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, 19, 1, 16, 1, 16, 32, -16, 32, -16, 1, -19, 1)
